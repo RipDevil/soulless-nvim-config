@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 
 -- Shortcuts for common actions
 vim.keymap.set("n", "<leader>", "<NOP>", opts)
-vim.g.mapleader = "\\"
+vim.g.mapleader = " "
 
 -- Buffer navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
@@ -52,13 +52,7 @@ vim.keymap.set("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", opts)  --
 vim.keymap.set("n", "gp", "<CMD>lua vim.lsp.buf.type_definition()<CR>", opts)  -- Go to type definition
 vim.keymap.set("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", opts)  -- Show references
 vim.keymap.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)  -- Show hover info
-
--- AI Assistant shortcuts (disabled)
--- vim.keymap.set("n", "<leader>ac", "<CMD>AIChat<CR>", opts)  -- AI Chat
--- vim.keymap.set("n", "<leader>ai", "<CMD>AISuggest<CR>", opts)  -- AI Suggestions
--- vim.keymap.set("n", "<leader>ae", "<CMD>AIExplain<CR>", opts)  -- Explain code
--- vim.keymap.set("n", "<leader>ad", "<CMD>AIDocs<CR>", opts)  -- Generate docs
--- vim.keymap.set("n", "<leader>ar", "<CMD>AIRename<CR>", opts)  -- Refactor code
+vim.keymap.set("n", "gl", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
 
 -- Nvim-tree shortcuts
 vim.keymap.set("n", "<leader>e", "<CMD>NvimTreeToggle<CR>", opts)  -- Toggle tree

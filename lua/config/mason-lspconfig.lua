@@ -1,36 +1,23 @@
 -- Mason-LSPConfig integration
 require("mason-lspconfig").setup({
   ensure_installed = {
-    -- This should match what's in mason.lua ensure_installed list
-    
-    -- TypeScript/JavaScript
-    "tsserver",
+    "ts_ls",
     "eslint",
     "jsonls",
     "html",
     "cssls",
-    "tailwindcss",
-    
-    -- Python
-    "pyright",
+    "css_variables",
+    "cssmodules_ls",
     "lua_ls",
     "graphql",
-    "dockerfile-language-server",
-    "yaml-language-server",
     "marksman",
-    "jsonls",
-    
-    -- Additional tools
-    "ruff",
-    "mypy",
-    "shellcheck",
-    "shfmt",
-    "luacheck",
-    "graphql-language-service-cli",
-    "hadolint",
-    "yamllint",
-    "markdownlint",
-    "stylelint",
-    "htmlhint",
-  }
+    "yamlls",
+    "stylelint_lsp",
+    "wc_ls",
+  },
+  --automatic_enable = {
+  --  exclude = {
+  --    "graphql-language-service-cli"
+  --  }
+  --}
 })

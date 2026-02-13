@@ -29,18 +29,13 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
   },
 
-  -- Language Server Protocol
   {
-    "neovim/nvim-lspconfig",
+    "mason-org/mason-lspconfig.nvim",
     dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/nvim-cmp",
-    },
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig"
+    }
   },
 
   -- Treesitter
@@ -82,46 +77,11 @@ require("lazy").setup({
     "windwp/nvim-autopairs",
     event = "InsertEnter",
   },
+  
+  { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true },
 
   {
-    "Ferouk/bearded-nvim",
-    name = "bearded",
-    priority = 1000,
-    build = function()
-      -- Generate helptags so :h bearded-theme works
-      local doc = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy", "bearded", "doc")
-      pcall(vim.cmd, "helptags " .. doc)
-    end,
-    config = function()
-      require("bearded").setup({
-        flavor = "milkshake-mango", -- any flavor slug
-        transparent = false,
-        bold = true,
-        italic = true,
-        dim_inactive = false,
-        terminal_colors = true,
-        on_highlights = function(set, palette, opts)
-          -- optional override
-          set("Normal", { fg = palette.ui.default })
-        end,
-      })
-      vim.cmd.colorscheme("bearded")
-    end,
-  },
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "bearded",
-    },
-  },
-
-
-  -- AI Assistant (disabled)
-  -- {
-  --   "OlegKomarov/ai-nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --   },
-  -- },
-})
+    'stevearc/conform.nvim',
+    opts = {},
+  } 
+}) 

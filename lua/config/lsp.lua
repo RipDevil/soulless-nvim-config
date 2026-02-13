@@ -1,9 +1,7 @@
 -- LSP configuration
-local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities());
 
--- Enable LSP for various languages with enhanced settings
-lspconfig.tsserver.setup {
+vim.lsp.config("ts_ls", {
   capabilities = capabilities,
   settings = {
     typescript = {
@@ -22,18 +20,19 @@ lspconfig.tsserver.setup {
         enableServerSideFuzzyMatch = true
       }
     }
-  }
-}
+  },
+})
 
-lspconfig.html.setup {
+vim.lsp.config("html", {
   capabilities = capabilities,
-}
+})
 
-lspconfig.cssls.setup {
+vim.lsp.config("cssls", {
   capabilities = capabilities,
-}
+})
 
-lspconfig.lua_ls.setup {
+
+vim.lsp.config("lua_ls", {
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -47,5 +46,5 @@ lspconfig.lua_ls.setup {
         library = vim.api.nvim_get_runtime_file("", true),
       },
     }
-  }
-}
+  },
+})

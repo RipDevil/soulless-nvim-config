@@ -1,18 +1,18 @@
 -- Lualine configuration
-require('lualine').setup {
+require('lualine').setup({
   options = {
     icons_enabled = true,
     theme = 'auto',
-    component_separators = '|',
+    component_separators = '~',
     section_separators = '',
   },
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'filename'},
-    lualine_c = {'branch'},
+    lualine_c = {'branch', 'tabs'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_z = {'lsp_status', 'location'}
   },
   inactive_sections = {
     lualine_a = {},
@@ -46,4 +46,4 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   }
-}
+})
