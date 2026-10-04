@@ -1,22 +1,19 @@
--- Neovim Configuration
--- This is the main entry point for the Neovim configuration
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
--- Load plugins first
-require('config.plugins')
+if not vim.uv.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+end
 
--- Load other configurations
-require('config.mason')
-require('config.mason-lspconfig')
-require('config.mason-tool-installer')
-require('config.options')
-require('config.keymaps')
-require('config.nvim-tree')
-require('config.lualine')
-require('config.telescope')
-require('config.treesitter')
-require('config.cmp')
-require('config.lsp')
-require('config.gitsigns')
-require('config.autopairs')
-require('config.colorsheme')
-require('config.formatter')
+vim.opt.rtp:prepend(lazypath)
+
+require("config.options")
+require("config.keymaps")
+
+require("lazy").setup("plugins")
